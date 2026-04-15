@@ -32,7 +32,20 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // Get current position from the map
+        var key = (_currX, _currY);
+
+        // Check if movement is allowed (index 0 = left)
+        if (_mazeMap.ContainsKey(key) && _mazeMap[key][0])
+        {
+            // Move left (decrease X)
+            _currX--;
+        }
+        else
+        {
+            // Wall detected
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -41,7 +54,18 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        var key = (_currX, _currY);
+
+        // Check right movement (index 1 = right)
+        if (_mazeMap.ContainsKey(key) && _mazeMap[key][1])
+        {
+            // Move right (increase X)
+            _currX++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,7 +74,18 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        var key = (_currX, _currY);
+
+        // Check up movement (index 2 = up)
+        if (_mazeMap.ContainsKey(key) && _mazeMap[key][2])
+        {
+            // Move up (decrease Y)
+            _currY--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -59,7 +94,18 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        var key = (_currX, _currY);
+
+        // Check down movement (index 3 = down)
+        if (_mazeMap.ContainsKey(key) && _mazeMap[key][3])
+        {
+            // Move down (increase Y)
+            _currY++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()
